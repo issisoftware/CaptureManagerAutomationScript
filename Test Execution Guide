@@ -1,0 +1,23 @@
+As a first step for any automation script will be , launching the web browser.
+* Launching web browser * :-
+    -> in our project structure under src/main/java/org.issi.driver package, we have 'Driver' class, in which we have code/methods to
+    intiate the browser and to close the browser.
+    -> these initiate and close browser methods, we are calling in '@Before & @After' methods inn'src/test/java/org.issi.hooks/Hooks' class
+        so it will get execute before and after of each scenario.
+
+* To Login *
+    -> Create login feature file, in src/test/resources/Appfeatures folder, with .feature extension, once you run this login feature file
+    in consol it will display the steps that are undefined with a templet, we can use that templet to define the steps.
+
+    -> In src/test/java/stepdefinition pack we defined 'LoginSteps' class with the steps corresponding to the login feature file.
+
+
+
+
+-> As a first step , we need to create 'LoginPage' class, in src/main/java/org.issi.page pack
+    -> Defined 'LoginPage' class as 'final' to restrict on doing multiple inheritance (or) Not to extend this login page class
+    -> Created one 'Private' constructor to restrict on creating new object for this login page class
+    -> 'identified the elements' present in login page using 'By' locator
+    -> Defined 'corresponding action methods' for the elements identified.
+
+-> Right click on 'Appfeatures' folder in src/test/resources-> New -> File -> enter new file name with '.feature' extension

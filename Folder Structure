@@ -1,0 +1,74 @@
+                                           *** USER GUIDE ***
+
+Rules that followed on creating this frame work:
+ * No Hardcoding
+ * Keeping the right things in right place
+ * Reusability
+ * easy to understand by manual testers and other team members
+ * Making a Robust frame work - i.e using correct modifiers as per their need.
+
+Naming convenstion that i used in this project:
+* Class and interface names -> DemoClass
+* Final Constant values -> CONSTANTVALUE
+* Method names are like -> methodNames
+* Package name are in -> packagename
+
+
+Here we are creating the framework/Project using Maven
+Maven is a build automation tool,based on the concept of page object model(POM)
+
+
+-> Create a new Maven project
+-> Update POM.xml file with required dependencies
+
+in maven project structure under
+ -> src/main/java -> we keep all things that are not related and helps for test execution like
+    Driver initializations, utilities like to take screenshots/read and excel file ,Reports, listeners etc,.
+
+lets see the project structure:
+-> src/main/java :
+
+    -> org.issi.constants :- 'To have right things at right place and to avoid Hardcoding' , we created 'Constants' package
+     to store all frame work constants. And these constants are private and final. Since they are private and final we are
+     creating getter method for it and calling this getter method in place using constant variable.
+
+    -> org.issi.driver :- In this 'driver' package, we are having a 'Driver & Driver Manager' class. in 'Driver' class we are
+    initiating and closing the driver and in 'Driver Manger' class we are implementing "Threadlocal" concept to avoid
+    "StaleElementReferenceException" in parallel execution.
+
+    -> org.issi.enum :- 'Enum' is a special java type, used to define collection/group of constants
+    Enum helps to make sure that user should enter/user a set of predefined values due this we can avoid typo errors and
+    null pointer exception.
+
+    -> org.issi.factory :- Here in factory package , we have configured in such a way based on the based on the 'Browser'
+    option we entered it will lauch the Driver like chrome,firefox,ie --. also configured various wait factors.
+
+    -> org.issi.pages :- in pages pack we are creating a seperate class for each page of our applicaiton and identifying the elements
+    present in that page and creating corresponding actions methods.
+
+    -> org.issi.Utilities :- In Utilities package we have the DynamicXpath utils, genaric excel read method and property utils classes
+
+
+
+
+
+-> src/test/java :
+
+    -> org.issi.hooks :- To implement 'Re usability' we have created 'hooks' package.in this 'hooks'
+    pack we have implemented pre and post conditions the need to perform before and after each scenario.
+    @Before will execute before each scenario
+    @After will execute after each scenario
+
+    -> org.issi.runner :- We have 'TestRunner' class in this 'runner' pack and with the help of this 'TestRunner' class we can
+    execute our automation script
+
+    -> org.issi.stepdefinitions :- A Step Definition is a Java method with an expression that links it to one or more Gherkin steps.
+     When Cucumber executes a Gherkin step in a scenario/feature file, it will look for a matching step definition to execute.
+
+
+-> src/test/resources
+     In src/test/resources we have the 'Appfeatures','Config','Test_Data' and extent report supporting files.
+
+
+{Since here we are using 'WebDriverManager', we are not downloading any specific brower driver}
+

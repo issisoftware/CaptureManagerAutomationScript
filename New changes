@@ -1,0 +1,8 @@
+**** Owner library to replace configuration file ***
+-> to work with owner library add 'Owner' dependency to your maven project
+-> After adding owner dependcy , we have to creat one interface  with the name of your property file.
+-> After creating interface use extends 'config' class from owner library
+-> now declare in interface that , what type of values you have in propoerty file
+
+
+//span[text()='SIGN-IN']/parent::button"
